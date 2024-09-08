@@ -436,7 +436,7 @@ class JsonSchemaEncoderSuite extends munit.FunSuite {
     assertEquals(obtained, expected)
   }
 
-  test("must follow alias types") {
+  test("must handle alias types") {
     case class A(name: String)
     type AAlias          = A
     type OpaqueTypeAlias = OpaqueType
@@ -459,6 +459,23 @@ class JsonSchemaEncoderSuite extends munit.FunSuite {
           "title"       -> Json.fromString("A custom title")
         )
       )
+    )
+
+    assertEquals(obtained, expected)
+  }
+
+  test("must handle alias type 2") {
+    type A = Int
+    @JsonSchemaField(
+      key = "K",
+      value = Json.fromString("V")
+    )
+    type B = A
+    type C = B
+
+    val obtained = JsonSchema[C]
+    val expected = Json.obj(
+      "type" -> Json.fromString("integer")
     )
 
     assertEquals(obtained, expected)

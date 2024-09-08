@@ -17,7 +17,7 @@ object JsonSchemaField {
   ): Expr[Map[String, List[(String, Json)]]] = {
     import quotes.reflect.*
 
-    val tpe = TypeRepr.of[T].dealiasKeepOpaques
+    val tpe = TypeRepr.of[T]
 
     val params = tpe.typeSymbol.primaryConstructor.paramSymss
 
@@ -37,7 +37,7 @@ object JsonSchemaField {
   ): Expr[List[(String, Json)]] = {
     import quotes.reflect.*
 
-    val tpe = TypeRepr.of[T].dealiasKeepOpaques
+    val tpe = TypeRepr.of[T]
     extractAnnotationsForSymbol(tpe.typeSymbol)
   }
 
@@ -49,7 +49,7 @@ object JsonSchemaField {
   ): Expr[Map[String, List[(String, Json)]]] = {
     import quotes.reflect.*
 
-    val tpe = TypeRepr.of[T].dealiasKeepOpaques
+    val tpe = TypeRepr.of[T]
 
     val children = tpe.typeSymbol.children
 

@@ -2,7 +2,7 @@ val scala3Version = "3.5.0"
 val CirceVersion  = "0.14.9"
 
 ThisBuild / scalaVersion       := scala3Version
-ThisBuild / crossScalaVersions := Seq(scalaVersion.value)
+ThisBuild / crossScalaVersions := Seq(scalaVersion.value, "3.3.3")
 
 ThisBuild / licenses := Seq(
   "APL2" -> url("https://www.apache.org/licenses/LICENSE-2.0.txt")
@@ -28,6 +28,8 @@ ThisBuild / sonatypeRepository := "https://s01.oss.sonatype.org/service/local"
 
 ThisBuild / semanticdbEnabled := true
 ThisBuild / semanticdbVersion := scalafixSemanticdb.revision
+
+usePgpKeyHex("EA39099104314A0169EA2DC5531F0807E5F7D750")
 
 lazy val root = project
   .in(file("."))
