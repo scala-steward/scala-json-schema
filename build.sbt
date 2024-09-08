@@ -34,8 +34,7 @@ usePgpKeyHex("EA39099104314A0169EA2DC5531F0807E5F7D750")
 lazy val root = project
   .in(file("."))
   .settings(
-    name    := "scala-json-schema",
-    version := "0.1.0-SNAPSHOT",
+    name := "scala-json-schema",
     libraryDependencies ++= Seq(
       "io.circe"      %% "circe-core" % CirceVersion,
       "org.scalameta" %% "munit"      % "1.0.0" % Test
