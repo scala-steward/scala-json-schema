@@ -12,6 +12,12 @@ Product types get the type `object` and sum types are converted into `anyOf`.
 You can inject all other fields via annotation.
 As intended, there is zero validation--you can do whatever you want.
 
+## Installation
+
+```scala
+libraryDependencies += "com.melvinlow" %% "scala-json-schema" % "@VERSION@"
+```
+
 ## Examples:
 
 Encoding a product:
