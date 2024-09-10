@@ -3,7 +3,7 @@
 This is a minimal library to generate JSON schema from Scala ADTs.
 It is built on top of [circe](https://circe.github.io/circe/).
 
-To reduce complexity and maintenance burden, this library
+To reduce complexity and maintenance, this library
 does the absolute minimum: It will traverse your ADT and generate
 a schema with nested types and properties. No other fields are included.
 
@@ -14,13 +14,15 @@ As intended, there is zero validation--you can do whatever you want.
 
 ## Installation
 
+This library is built for Scala 3.
+
 ```scala
-libraryDependencies += "com.melvinlow" %% "scala-json-schema" % "0.1.2"
+libraryDependencies += "com.melvinlow" %% "scala-json-schema" % "<VERSION>"
 ```
 
 ## Examples:
 
-Encoding a product:
+Encode a product:
 
 ```scala
 import com.melvinlow.json.schema.*
@@ -43,7 +45,7 @@ JsonSchema[Foo].spaces2
 // }"""
 ```
 
-Encoding a coproduct:
+Encode a coproduct:
 
 ```scala
 enum Bar:
@@ -68,7 +70,7 @@ JsonSchema[Bar].spaces2
 // }"""
 ```
 
-Adding fields via annotation (it takes as input any `String` and `Json` key-value pair):
+Add fields via annotation (it takes as input any `String` and `Json` key-value pair):
 
 ```scala
 import com.melvinlow.json.schema.annotation.JsonSchemaField
@@ -98,7 +100,7 @@ JsonSchema[Dog].spaces2
 // }"""
 ```
 
-Creating an encoder for a new type:
+Create an encoder for a new type:
 
 ```scala
 object H:

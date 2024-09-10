@@ -1,8 +1,7 @@
-val scala3Version = "3.5.0"
-val CirceVersion  = "0.14.9"
+val scala3Version = "3.3.3"
+val CirceVersion  = "0.14.10"
 
-ThisBuild / scalaVersion       := scala3Version
-ThisBuild / crossScalaVersions := Seq(scalaVersion.value, "3.3.3")
+ThisBuild / scalaVersion := scala3Version
 
 ThisBuild / licenses := Seq(
   "APL2" -> url("https://www.apache.org/licenses/LICENSE-2.0.txt")
