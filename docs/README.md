@@ -27,7 +27,6 @@ Encode a product:
 ```scala mdoc
 import com.melvinlow.json.schema.*
 import com.melvinlow.json.schema.generic.auto.given
-import com.melvinlow.json.schema.instances.given
 
 case class Foo(x: Int, y: String)
 

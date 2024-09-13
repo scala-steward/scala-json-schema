@@ -5,7 +5,6 @@ import io.circe.Json
 import com.melvinlow.json.schema.Resources.*
 import com.melvinlow.json.schema.annotation.JsonSchemaField
 import com.melvinlow.json.schema.generic.auto.given
-import com.melvinlow.json.schema.instances.given
 import com.melvinlow.json.schema.syntax.*
 
 class JsonSchemaEncoderSuite extends munit.FunSuite {

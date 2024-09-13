@@ -6,10 +6,10 @@ import scala.deriving.Mirror
 
 import io.circe.Json
 
-import com.melvinlow.json.schema.JsonSchemaEncoder
 import com.melvinlow.json.schema.annotation.JsonSchemaField
+import com.melvinlow.json.schema.{JsonSchemaEncoder, instances}
 
-object auto {
+trait auto {
   inline private def summonLabels[Elems <: Tuple]: List[String] =
     inline erasedValue[Elems] match {
       case _: (elem *: elems) =>
@@ -38,7 +38,7 @@ object auto {
       case _: Elem =>
         error("infinite recursive derivation")
       case _ =>
-        auto.derived[Elem](using summonInline[Mirror.Of[Elem]])
+        derived[Elem](using summonInline[Mirror.Of[Elem]])
     }
 
   private def sumEncoder[T: Mirror.SumOf](
@@ -110,3 +110,5 @@ object auto {
   inline given derivedSum[T: Mirror.SumOf]: JsonSchemaEncoder[T] =
     derived[T]
 }
+
+object auto extends auto with semiauto with instances
